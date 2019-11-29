@@ -41,7 +41,7 @@ get_free_memory() {
   local ram
   case `uname` in
     FreeBSD | BSD)
-      ram=`grep 'avail memory' /var/run/dmesg.boot | aws '{print $4}'`
+      ram=`grep 'avail memory' /var/run/dmesg.boot | awk '{print $4}'`
       base=''
       ;;
     Darwin)
